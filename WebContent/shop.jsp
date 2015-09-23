@@ -110,8 +110,8 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">Home</a></li>
-                        <li class="active"><a href="shop.html">Shop page</a></li>
-                        <li><a href="single-product.html">Single product</a></li>
+                        <li class="active"><a href="shop.jsp">Shop page</a></li>
+                        <li><a href="single-product.jsp">Single product</a></li>
                         <li><a href="cart.html">Cart</a></li>
                         <li><a href="checkout.html">Checkout</a></li>
                         <li><a href="#">Category</a></li>
@@ -155,9 +155,9 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="<% out.println("img/Indoor/"+imageName+(i+1)+".jpg"); %>" alt="">
+                            <a href="single-product.jsp?name=<%out.println(items.get(i).getMODEL_NAME());%>"><img src="<% out.println("img/Indoor/"+imageName+(i+1)+".jpg"); %>" alt=""></a>
                         </div>
-                        <h2><a href=""><% out.print(items.get(i).getMODEL_NAME()); %></a></h2>
+                        <h2><a href="single-product.jsp?name=<%out.println(items.get(i).getMODEL_NAME());%>"><% out.print(items.get(i).getMODEL_NAME()); %></a></h2>
                         <div class="product-carousel-price">
                             <ins><% out.print("Rs. "+items.get(i).getCOST()); %></ins> <del><% out.print("Rs. "+oldPrice); %></del>
                         </div>  
@@ -172,7 +172,7 @@
                 
             </div>
             
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-12">
                     <div class="product-pagination text-center">
                         <nav>
@@ -196,7 +196,7 @@
                         </nav>                        
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
