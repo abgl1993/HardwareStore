@@ -70,7 +70,7 @@ public class DataAccessObject {
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				Item item = new Item(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+				Item item = new Item(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8));
 				items.add(item);
 			}
 			

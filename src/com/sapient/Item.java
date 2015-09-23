@@ -6,11 +6,11 @@ public class Item {
 	private String PRODUCT_TYPE;
 	private String MODEL_NAME;
 	private String UTILITY;
-	private String PRO_QUANTITY;
-	private String COST;
+	private int PRO_QUANTITY;
+	private int COST;
 	private String DESCRIPTION;
 	
-	public Item(String uid, String brandName, String productType, String modelName, String utility, String proQuantity,String cost, String description){
+	public Item(String uid, String brandName, String productType, String modelName, String utility, int proQuantity, int cost, String description){
 		U_ID = uid;
 		BRAND_NAME = brandName;
 		PRODUCT_TYPE = productType;
@@ -51,18 +51,23 @@ public class Item {
 	public void setUTILITY(String uTILITY) {
 		UTILITY = uTILITY;
 	}
-	public String getPRO_QUANTITY() {
+	
+	public int getPRO_QUANTITY() {
 		return PRO_QUANTITY;
 	}
-	public void setPRO_QUANTITY(String pRO_QUANTITY) {
+
+	public void setPRO_QUANTITY(int pRO_QUANTITY) {
 		PRO_QUANTITY = pRO_QUANTITY;
 	}
-	public String getCOST() {
+
+	public int getCOST() {
 		return COST;
 	}
-	public void setCOST(String cOST) {
+
+	public void setCOST(int cOST) {
 		COST = cOST;
 	}
+
 	public String getDESCRIPTION() {
 		return DESCRIPTION;
 	}
