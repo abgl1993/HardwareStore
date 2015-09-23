@@ -29,4 +29,24 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Processor</display-name>
+    <servlet-name>Processor</servlet-name>
+    <servlet-class>com.sapient.processor.Processor</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Processor</servlet-name>
+    <url-pattern>/cart.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ItemValidator</display-name>
+    <servlet-name>ItemValidator</servlet-name>
+    <servlet-class>com.sapeint.model.ItemValidator</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ItemValidator</servlet-name>
+    <url-pattern>/item.do</url-pattern>
+  </servlet-mapping>
 </web-app>
