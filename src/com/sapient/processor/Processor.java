@@ -1,4 +1,5 @@
 package com.sapient.processor;
+import  com.sapient.Item;
 
 import java.io.IOException;
 
@@ -36,10 +37,12 @@ public class Processor extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String item=request.getParameter("item");
 		ItemValidator item_validator=new ItemValidator();
-		Boolean status =item_validator.validateItem(item);
-		if(status){
-			Item updatedItem=item_validator.getItem();
-		    
+		Item updatedItem=item_validator.getItem(item);
+		if(updatedItem.getPRO_QUANTITY()>0){
+			  
+		}
+		else{
+			
 		}
 	}
 
