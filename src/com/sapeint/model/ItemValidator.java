@@ -11,7 +11,7 @@ public class ItemValidator implements Serializable {
 
 public Item getItem(String item) {
         
-	return dao.itemAvailability(item);
+	return dao.getItem(item);
 }
 
 

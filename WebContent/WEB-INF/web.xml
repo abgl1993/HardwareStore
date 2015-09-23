@@ -49,7 +49,7 @@
     <servlet-name>ItemValidator</servlet-name>
     <url-pattern>/item.do</url-pattern>
   </servlet-mapping>
-=======
+
   
   <resource-ref>
   <res-ref-name>
@@ -63,5 +63,4 @@
   </res-auth>
 </resource-ref>
 
->>>>>>> 67d6854b1f8704033e5b6562af031155899bc1cc
 </web-app>
