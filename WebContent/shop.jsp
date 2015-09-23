@@ -150,7 +150,7 @@
              		imageName = "Image0";
              	else
              		imageName = "Image";
-             	oldPrice = Integer.parseInt(items.get(i).getCOST())+25;
+             	oldPrice = items.get(i).getCOST()+25;
              %>
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
