@@ -70,11 +70,10 @@ public class DataAccessObject {
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
-<<<<<<< HEAD
-				Item item = new Item(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8));
-=======
+
 				Item item = new Item(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8));
->>>>>>> f2221227f78d5b6130e7c9578bcad7bc5a25b96b
+     			
+
 				items.add(item);
 			}
 			
@@ -93,7 +92,7 @@ public class DataAccessObject {
 			item = null;
 			if(rs.next())
 			{
-				item = new Item(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8));			
+				item = new Item(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8));			
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
