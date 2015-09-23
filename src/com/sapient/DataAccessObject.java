@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -54,28 +55,29 @@ public class DataAccessObject {
 			
 			return false;
 		}catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			log.info("SQL Connection Error!");
 		}
 		return false;
 	}
 	
 	public List<Object> getProductList(){
 		
+		List<Item> items = new ArrayList<Item>();
+		
 		try {
 			ps = con.prepareStatement("SELECT * FROM PRODUCT_DETAILS");
 			ResultSet rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				//fname = rs.getString(1);
-				//lname = rs.getString(2);
+				Item item = new Item(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+				items.add(item);
 				return null;
 			}
 			
-			
 		}catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			log.info("SQL Connection Error!");
 		}
 		return null;
 	}
