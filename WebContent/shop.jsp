@@ -1,3 +1,5 @@
+<%@page import="com.sapient.Item"%>
+<%@page import="java.util.List"%>
 <%@page import="com.sapient.DataAccessObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -140,17 +142,24 @@
             <div class="row">
              <!--------------------------------- PRODUCTS ----------------------------------->
              <% DataAccessObject dao = new DataAccessObject();
-             	for (int i = 1; i < 9; i++){ 
-             	
+             	List<Item> items = dao.getProductList();
+             	String imageName="";
+             	int oldPrice=0;
+             	for (int i = 0; i < items.size(); i++){ 
+             	if(i<9)
+             		imageName = "Image0";
+             	else
+             		imageName = "Image";
+             	oldPrice = Integer.parseInt(items.get(i).getCOST())+25;
              %>
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="<% out.println("img/Indoor/Image0"+i+".jpg"); %>" alt="">
+                            <img src="<% out.println("img/Indoor/"+imageName+(i+1)+".jpg"); %>" alt="">
                         </div>
-                        <h2><a href="">Apple new mac book 2015 March :P</a></h2>
+                        <h2><a href=""><% out.print(items.get(i).getMODEL_NAME()); %></a></h2>
                         <div class="product-carousel-price">
-                            <ins>$899.00</ins> <del>$999.00</del>
+                            <ins><% out.print("Rs. "+items.get(i).getCOST()); %></ins> <del><% out.print("Rs. "+oldPrice); %></del>
                         </div>  
                         
                         <div class="product-option-shop">
