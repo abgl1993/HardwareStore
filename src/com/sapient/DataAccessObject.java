@@ -61,7 +61,7 @@ public class DataAccessObject {
 		return false;
 	}
 	
-	public List<Object> getProductList(){
+	public List<Item> getProductList(){
 		
 		List<Item> items = new ArrayList<Item>();
 		
@@ -69,17 +69,16 @@ public class DataAccessObject {
 			ps = con.prepareStatement("SELECT * FROM PRODUCT_DETAILS");
 			ResultSet rs = ps.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				Item item = new Item(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
 				items.add(item);
-				return null;
 			}
 			
 		}catch (SQLException e) {
 			//e.printStackTrace();
 			log.info("SQL Connection Error!");
 		}
-		return null;
+		return items;
 	}
 	
 	public void dataAccessObjectClose(){
