@@ -38,11 +38,11 @@ public class DataAccessObject {
 			log.info("SQL Connection Error!");
 		}
 	}
-	public boolean validation(String username, String password){
+	public boolean validation(String emailid, String password){
 		
 		try {
-			ps = con.prepareStatement("SELECT FIRST_NAME, LAST_NAME FROM USERS WHERE USERID=? AND PASSWORD=?");
-			ps.setString(1, username);
+			ps = con.prepareStatement("SELECT NAME FROM USER_DETAILS WHERE EMAIL_ID=? AND PASSWORD=?");
+			ps.setString(1, emailid);
 			ps.setString(2, password);
 			
 			ResultSet rs = ps.executeQuery();
