@@ -22,7 +22,7 @@ public class DataAccessObject {
 	DataSource ds = null;
 	Connection con = null;
 	PreparedStatement ps = null;
-	
+
 	public DataAccessObject() {
 		log = Logger.getLogger(DataAccessObject.class.getName());
 		BasicConfigurator.configure();
@@ -83,7 +83,7 @@ public class DataAccessObject {
 		}
 		return items;
 	}
-	public Item itemAvailability(String itemName){
+	public Item getItem(String itemName){
 		Item item=null;
 		try {
 			ps=con.prepareStatement("SELECT * FROM PRODUCT_DETAILS WHERE MODEL_NAME = ?");
@@ -98,6 +98,7 @@ public class DataAccessObject {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return item;
 	}
 	

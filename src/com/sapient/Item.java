@@ -82,5 +82,10 @@ public class Item {
 		DESCRIPTION = dESCRIPTION;
 	}
 	
-	
+	public String getNameId(){
+		if(Integer.parseInt(U_ID)<10)
+			return "0"+Integer.parseInt(U_ID);
+		else
+			return ""+Integer.parseInt(U_ID);
+	}
 }
