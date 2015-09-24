@@ -71,7 +71,7 @@ xmlHttp.onreadystatechange=function()
 
 xmlHttp.open("POST","cart.do",true);
 item="Sealant Tape";
-xmlHttp.send("item"+item);
+xmlHttp.send("item="+item);
 
 }
 
