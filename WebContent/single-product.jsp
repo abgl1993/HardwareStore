@@ -149,7 +149,7 @@
                         </form>
                     </div>
                     
-                    <div class="single-sidebar">
+                    <!-- <div class="single-sidebar">
                         <h2 class="sidebar-title">Products</h2>
                         <div class="thubmnail-recent">
                             <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
@@ -158,27 +158,7 @@
                                 <ins>$700.00</ins> <del>$100.00</del>
                             </div>                             
                         </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>
+                        
                     </div>
                     
                     <div class="single-sidebar">
@@ -190,7 +170,7 @@
                             <li><a href="">Sony Smart TV - 2015</a></li>
                             <li><a href="">Sony Smart TV - 2015</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 
                 <div class="col-md-8">
@@ -201,8 +181,9 @@
                             <a href="">Sony Smart TV - 2015</a>
                         </div>
                         
-                        <% 	if(request.getParameter("name")==null)
+                        <% 	if(request.getParameter("name")==null || request.getParameter("name").isEmpty())
                         		request.getRequestDispatcher("/shop.jsp").forward(request, response);
+                       
                         	   String productName = request.getParameter("name");
                                DataAccessObject dao = new DataAccessObject();
                                Item item = dao.getItem(productName);
