@@ -1,5 +1,6 @@
 package com.sapient;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -61,8 +62,29 @@ public class DataAccessObject {
 		return false;
 	}
 	
-	public List<Item> getProductList(){
+	public int addUser(int uid,String name,String email,String password,String contactNo,String address)
+	{
 		
+		try {
+			ps = con.prepareStatement("INSERT INTO USER_DETAILS VALUES (?,?,?,?,?,?,?)");
+			
+			ps.setString(1, name);
+			ps.setString(2, email);
+			ps.setString(3, password);
+			ps.setString(4, contactNo);
+			ps.setString(5, address);
+			ps.setString(6,null);
+			ps.setInt(7,(int) Math.random());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 1;
+		
+	}
+		
+	public List<Item> getProductList(){
 		List<Item> items = new ArrayList<Item>();
 		
 		try {

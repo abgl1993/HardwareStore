@@ -101,5 +101,11 @@ public boolean validateLogin(String email,String password){
 		return false;
 }
 
+public void addNewUser(String name,String email,String password,String contactNo,String address)
+{
+	int uid =(int)Math.random();
+	int i=dao.addUser(uid,name,email,password,contactNo,address);
+	//System.out.print(name);
+}
 
 }

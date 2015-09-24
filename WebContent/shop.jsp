@@ -33,8 +33,51 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+     
+  
   </head>
   <body>
+ <script type="text/javascript">
+function addCart(){
+	var xmlHttp;
+	try{
+		
+	
+	xmlHttp=new XMLHttpRequest();
+	}
+	catch(e){
+	try{
+	xmlHttp =new ActiveXObject("Msxml2.XMLHTTP");
+	}
+	catch(e){
+     try{
+    	 
+	xmlHttp =new ActiveXObject("Microsoft.XMLHTTP");
+     }catch(e){
+    	 
+    
+	xmlHttp =new ActiveXObject("your browser does not support AJAX!");
+     }
+     }
+	}
+
+
+xmlHttp.onreadystatechange=function()
+{
+	if(xmlHttp.readyState==4){
+		//document.getElementById("divHello").innerHTML=xmlHttp.responseText;
+	}
+}
+
+xmlHttp.open("POST","cart.do",true);
+item="Sealant Tape";
+xmlHttp.send("item"+item);
+
+}
+
+</script>
+ 
+  
    
     <div class="header-area">
         <div class="container">
@@ -163,7 +206,7 @@
                         </div>  
                         
                         <div class="product-option-shop">
-                            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
+                            <button class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" onclick="addCart()">Add to cart</button>
                         </div>                       
                     </div>
                 </div>
