@@ -110,8 +110,8 @@
                         <li class="active"><a href="index.jsp">Home</a></li>
                         <li><a href="shop.jsp">Shop page</a></li>
                         <li><a href="single-product.jsp">Single product</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="cart.jsp">Cart</a></li>
+                        <li><a href="checkout.jsp">Checkout</a></li>
                         <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
                         <li><a href="#">Contact</a></li>
