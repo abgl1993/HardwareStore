@@ -42,11 +42,11 @@ public class LoginController extends HttpServlet {
 		if(status){
 			user.setEmail(email);
 			request.setAttribute("userBean", user);
-			request.getRequestDispatcher("/index.html").forward(request, response);
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 		else{
 			PrintWriter out=new PrintWriter(System.out,true);
-			out.println("Reched to else loop");
+			out.println("Reached to else loop");
 			//request.getRequestDispatcher("/Login.html").forward(request, response);
 		}
 		
