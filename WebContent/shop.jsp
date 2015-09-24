@@ -3,6 +3,7 @@
 <%@page import="com.sapient.DataAccessObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -184,25 +185,16 @@ xmlHttp.send("item="+item);
         <div class="container">
             <div class="row">
              <!--------------------------------- PRODUCTS ----------------------------------->
-             <% DataAccessObject dao = new DataAccessObject();
-             	List<Item> items = dao.getProductList();
-             	String imageName="";
-             	int oldPrice=0;
-             	for (int i = 0; i < items.size(); i++){ 
-             	if(i<9)
-             		imageName = "Image0";
-             	else
-             		imageName = "Image";
-             	oldPrice = items.get(i).getCOST()+25;
-             %>
+             <jsp:useBean id="items" class="com.sapient.DataAccessObject" scope="request"/>
+            	<c:forEach items="${requestScope.items.productList}" var="item">
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <a href="single-product.jsp?name=<%out.println(items.get(i).getMODEL_NAME());%>"><img src="<% out.println("img/Indoor/"+imageName+(i+1)+".jpg"); %>" alt=""></a>
+                            <a href="single-product.jsp?name=${item.MODEL_NAME}"><img src="img/Indoor/Image${item.nameId}.jpg" alt=""></a>
                         </div>
-                        <h2><a href="single-product.jsp?name=<%out.println(items.get(i).getMODEL_NAME());%>"><% out.print(items.get(i).getMODEL_NAME()); %></a></h2>
+                        <h2><a href="single-product.jsp?name=${item.MODEL_NAME}">${item.MODEL_NAME}</a></h2>
                         <div class="product-carousel-price">
-                            <ins><% out.print("Rs. "+items.get(i).getCOST()); %></ins> <del><% out.print("Rs. "+oldPrice); %></del>
+                            <ins>Rs. "${item.COST}</ins> <del>Rs. ${item.COST + 50}</del>
                         </div>  
                         
                         <div class="product-option-shop">
@@ -210,7 +202,7 @@ xmlHttp.send("item="+item);
                         </div>                       
                     </div>
                 </div>
-                <% } %>
+                </c:forEach>
                 <!----------------------------------------------------------------------------->
                 
             </div>
