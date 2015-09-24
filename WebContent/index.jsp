@@ -107,7 +107,7 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
+                        <li class="active"><a href="index.jsp">Home</a></li>
                         <li><a href="shop.jsp">Shop page</a></li>
                         <li><a href="single-product.jsp">Single product</a></li>
                         <li><a href="cart.html">Cart</a></li>
@@ -214,14 +214,14 @@
                             
                             <div class="single-product">
                                 <div class="product-f-image">
-                                    <img src="img/Indoor/Image${item.fullName}.jpg" alt="">
+                                    <img src="img/Indoor/Image${item.nameId}.jpg" alt="">
                                     <div class="product-hover">
                                         <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                         <a href="single-product.jsp?name=${item.MODEL_NAME}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                                     </div>
                                 </div>
                                 
-                                <h2><a href="single-product.html"></a>${item.MODEL_NAME}</h2>
+                                <h2><a href="single-product.jsp?name=${item.MODEL_NAME}"></a>${item.MODEL_NAME}</h2>
                                 
                                 <div class="product-carousel-price">
                                     <ins>Rs. ${item.COST}</ins> <del>Rs. ${item.COST + 50}</del>
@@ -262,16 +262,16 @@
         </div>
     </div> <!-- End brands area -->
     
-    <div class="product-widget-area">
+    <!-- <div class="product-widget-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
-            <!-- ----------------------------------------- TOP SELLERS------------------------------------------------------ -->
+            ----------------------------------------- TOP SELLERS------------------------------------------------------
                 <div class="col-md-4">
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">Top Sellers</h2>
                         <a href="" class="wid-view-more">View All</a>
-                        <!-- ---------------TOP SELLERS PRODUCT LIST STARTS HERE-----------  -->
+                        ---------------TOP SELLERS PRODUCT LIST STARTS HERE----------- 
                         <div class="single-wid-product">
                             <a href="single-product.html"><img src="img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
                             <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
@@ -286,16 +286,16 @@
                                 <ins>$400.00</ins> <del>$425.00</del>
                             </div>                            
                         </div>
-                         <!-- ---------------TOP SELLERS PRODUCT LIST ENDS HERE-----------  -->
+                         ---------------TOP SELLERS PRODUCT LIST ENDS HERE----------- 
                        
                     </div>
                 </div>
-                <!-- -----------------------TOP SELLERS ENDS HERE ------------------------->
+                -----------------------TOP SELLERS ENDS HERE -----------------------
                 <div class="col-md-4">
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">Recently Viewed</h2>
                         <a href="#" class="wid-view-more">View All</a>
-                         <!-- ---------------RECENTLY VIEWED PRODUCT STARTS HERE-----------  -->
+                         ---------------RECENTLY VIEWED PRODUCT STARTS HERE----------- 
                         <div class="single-wid-product">
                             <a href="single-product.html"><img src="img/product-thumb-4.jpg" alt="" class="product-thumb"></a>
                             <h2><a href="single-product.html">Sony playstation microsoft</a></h2>
@@ -314,12 +314,12 @@
                         
                     </div>
                 </div>
-                 <!-- ---------------RECENTLY VIEWED PRODUCT ENDS HERE-----------  -->
+                 ---------------RECENTLY VIEWED PRODUCT ENDS HERE----------- 
                 <div class="col-md-4">
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">Top New</h2>
                         <a href="#" class="wid-view-more">View All</a>
-                         <!-- ---------------TOP NEW  STARTS HERE-----------  -->
+                         ---------------TOP NEW  STARTS HERE----------- 
                         <div class="single-wid-product">
                             <a href="single-product.html"><img src="img/product-thumb-3.jpg" alt="" class="product-thumb"></a>
                             <h2><a href="single-product.html">Apple new i phone 6</a></h2>
@@ -338,10 +338,10 @@
                        
                     </div>
                 </div>
-                 <!-- ---------------TOP NEW ENDS HERE-----------  -->
+                 ---------------TOP NEW ENDS HERE----------- 
             </div>
         </div>
-    </div> <!-- End product widget area -->
+    </div> End product widget area -->
     
     <div class="footer-top-area">
         <div class="zigzag-bottom"></div>

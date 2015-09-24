@@ -109,7 +109,7 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.jsp">Home</a></li>
                         <li class="active"><a href="shop.jsp">Shop page</a></li>
                         <li><a href="single-product.jsp">Single product</a></li>
                         <li><a href="cart.html">Cart</a></li>
