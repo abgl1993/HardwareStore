@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+   <class name="com.sapient.hibernate.Contact" table="USERS_H">
+      
+      <id name="id" type="long" column="ID">
+         <generator class="assigned"/>
+      </id>
+      
+      <property name="firstName" >
+      	<column name="FIRSTNAME" ></column>
+      </property>
+      <property name="lastName">
+      	<column name="LASTNAME"></column>
+      </property>
+      
+      <property name="email">
+      <column name="EMAIL"></column>
+      </property>
+   </class>
+</hibernate-mapping>

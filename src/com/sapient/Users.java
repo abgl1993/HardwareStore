@@ -8,8 +8,8 @@ public class Users implements Serializable{
 	private String email;
 	private String address;
 	private String password;
-	private String u_id;
-	private String contact_no;
+	private String uId;
+	private String contactNo;
 	private Cart cart;
 	
 	public Users(String name, String email, String address, String u_id,
@@ -18,7 +18,7 @@ public class Users implements Serializable{
 		this.name = name;
 		this.email = email;
 		this.address = address;
-		this.u_id = u_id;
+		this.uId = u_id;
 		this.cart = cart;
 	}
 	
@@ -51,16 +51,16 @@ public class Users implements Serializable{
 		this.password = password;
 	}
 	public String getU_id() {
-		return u_id;
+		return uId;
 	}
 	public void setU_id(String u_ID) {
-		u_id = u_ID;
+		uId = u_ID;
 	}
 	public String getContact_no() {
-		return contact_no;
+		return contactNo;
 	}
 	public void setContact_no(String contact_no) {
-		this.contact_no = contact_no;
+		this.contactNo = contact_no;
 	}
 	public Cart getCart() {
 		return cart;
