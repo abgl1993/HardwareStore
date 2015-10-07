@@ -86,7 +86,7 @@ public class Users implements Serializable{
 	public int addNewUser(String name,String email,String password,String contactNo,String address)
 	{
 		DataAccessObject dao = new DataAccessObject();
-		int uid =(int)Math.random();
+		String uid = (int)Math.random()+"";
 		int i=dao.addUser(uid,name,email,password,contactNo,address);
 		return i;
 		//System.out.print(name);
