@@ -41,8 +41,8 @@
                         <ul>
                             <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
+                            <li><a href="cart.jsp"><i class="fa fa-user"></i> My Cart</a></li>
+                            <li><a href="checkout.jsp"><i class="fa fa-user"></i> Checkout</a></li>
                             <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
                         </ul>
                     </div>
@@ -86,7 +86,7 @@
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="cart.jsp">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                     </div>
                 </div>
             </div>
@@ -106,14 +106,14 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop page</a></li>
-                        <li><a href="single-product.html">Single product</a></li>
-                        <li class="active"><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="#">Category</a></li>
+                        <li><a href="index.jsp">Home</a></li>
+                        <li><a href="shop.jsp">Shop page</a></li>
+                        <li><a href="single-product.jsp">Single product</a></li>
+                        <li class="active"><a href="cart.jsp">Cart</a></li>
+                        <li><a href="checkout.jsp">Checkout</a></li>
+                        <!-- <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Contact</a></li> -->
                     </ul>
                 </div>  
             </div>
@@ -146,7 +146,7 @@
                         </form>
                     </div>
                     
-                    <div class="single-sidebar">
+                   <!--  <div class="single-sidebar">
                         <h2 class="sidebar-title">Products</h2>
                         <div class="thubmnail-recent">
                             <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
@@ -176,9 +176,9 @@
                                 <ins>$700.00</ins> <del>$800.00</del>
                             </div>                             
                         </div>
-                    </div>
+                    </div> -->
                     
-                    <div class="single-sidebar">
+                    <!-- <div class="single-sidebar">
                         <h2 class="sidebar-title">Recent Posts</h2>
                         <ul>
                             <li><a href="#">Sony Smart TV - 2015</a></li>
@@ -187,7 +187,7 @@
                             <li><a href="#">Sony Smart TV - 2015</a></li>
                             <li><a href="#">Sony Smart TV - 2015</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 
                 <div class="col-md-8">
@@ -197,19 +197,19 @@
                                 <table cellspacing="0" class="shop_table cart">
                                     <thead>
                                         <tr>
-                                            <th class="product-remove">&nbsp;</th>
+                                            <!-- <th class="product-remove">&nbsp;</th> -->
                                             <th class="product-thumbnail">&nbsp;</th>
                                             <th class="product-name">Product</th>
                                             <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
-                                            <th class="product-subtotal">Total</th>
+                                            <!-- <th class="product-quantity">Quantity</th> -->
+                                            <!-- <th class="product-subtotal">Total</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="cart_item">
-                                            <td class="product-remove">
+                                            <!-- <td class="product-remove">
                                                 <a title="Remove this item" class="remove" href="#">×</a> 
-                                            </td>
+                                            </td> -->
 
                                             <td class="product-thumbnail">
                                                 <a href="single-product.html"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="img/product-thumb-2.jpg"></a>
@@ -223,17 +223,17 @@
                                                 <span class="amount">£15.00</span> 
                                             </td>
 
-                                            <td class="product-quantity">
+                                            <!-- <td class="product-quantity">
                                                 <div class="quantity buttons_added">
                                                     <input type="button" class="minus" value="-">
                                                     <input type="number" size="4" class="input-text qty text" title="Qty" value="1" min="0" step="1">
                                                     <input type="button" class="plus" value="+">
                                                 </div>
-                                            </td>
+                                            </td> -->
 
-                                            <td class="product-subtotal">
+                                            <!-- <td class="product-subtotal">
                                                 <span class="amount">£15.00</span> 
-                                            </td>
+                                            </td> -->
                                         </tr>
                                         <tr>
                                             <td class="actions" colspan="6">

@@ -1,91 +1,92 @@
 package com.sapient;
 
-public class Item {
-	private String U_ID;
-	private String BRAND_NAME;
-	private String PRODUCT_TYPE;
-	private String MODEL_NAME;
-	private String UTILITY;
-	private int PRO_QUANTITY;
+import java.io.Serializable;
 
-	private int COST;
-	private String DESCRIPTION;
+public class Item implements Serializable{
+	private String uId;
+	private String brandName;
+	private String productType;
+	private String modelName;
+	private String utility;
+	private int productQuantity;
+	private int cost;
+	private String description;
 	
 	
 	
 	public Item(String uid, String brandName, String productType, String modelName, String utility, int proQuantity, int cost, String description){
 
-		U_ID = uid;
-		BRAND_NAME = brandName;
-		PRODUCT_TYPE = productType;
-		MODEL_NAME = modelName;
-		UTILITY = utility;
-		PRO_QUANTITY = proQuantity;
-		COST = cost;
-		DESCRIPTION = description;
+		this.uId = uid;
+		this.brandName = brandName;
+		this.productType = productType;
+		this.modelName = modelName;
+		this.utility = utility;
+		this.productQuantity = proQuantity;
+		this.cost = cost;
+		this.description = description;
 	}
 	
 	public String getU_ID() {
-		return U_ID;
+		return uId;
 	}
 	public void setU_ID(String u_ID) {
-		U_ID = u_ID;
+		uId = u_ID;
 	}
 	public String getBRAND_NAME() {
-		return BRAND_NAME;
+		return brandName;
 	}
 	public void setBRAND_NAME(String bRAND_NAME) {
-		BRAND_NAME = bRAND_NAME;
+		brandName = bRAND_NAME;
 	}
 	public String getPRODUCT_TYPE() {
-		return PRODUCT_TYPE;
+		return productType;
 	}
 	public void setPRODUCT_TYPE(String pRODUCT_TYPE) {
-		PRODUCT_TYPE = pRODUCT_TYPE;
+		productType = pRODUCT_TYPE;
 	}
 	public String getMODEL_NAME() {
-		return MODEL_NAME;
+		return modelName;
 	}
 	public void setMODEL_NAME(String mODEL_NAME) {
-		MODEL_NAME = mODEL_NAME;
+		modelName = mODEL_NAME;
 	}
 	public String getUTILITY() {
-		return UTILITY;
+		return utility;
 	}
 	public void setUTILITY(String uTILITY) {
-		UTILITY = uTILITY;
+		utility = uTILITY;
 	}
 
 	
 	
 	public int getPRO_QUANTITY() {
-		return PRO_QUANTITY;
+		return productQuantity;
 	}
 
 
 	public void setPRO_QUANTITY(int pRO_QUANTITY) {
-		PRO_QUANTITY = pRO_QUANTITY;
+		productQuantity = pRO_QUANTITY;
 	}
 
 	public int getCOST() {
-		return COST;
+		return cost;
 	}
 
 	public void setCOST(int cOST) {
-		COST = cOST;
+		cost = cOST;
 	}
 
 	public String getDESCRIPTION() {
-		return DESCRIPTION;
+		return description;
 	}
 	public void setDESCRIPTION(String dESCRIPTION) {
-		DESCRIPTION = dESCRIPTION;
+		description = dESCRIPTION;
 	}
 	
 	public String getNameId(){
-		if(Integer.parseInt(U_ID)<10)
-			return "0"+Integer.parseInt(U_ID);
+		if(Integer.parseInt(uId)<10)
+			return "0"+Integer.parseInt(uId);
 		else
-			return ""+Integer.parseInt(U_ID);
+			return ""+Integer.parseInt(uId);
 	}
 }

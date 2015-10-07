@@ -1,6 +1,8 @@
 package com.sapient;
 
-public class Users {
+import java.io.Serializable;
+
+public class Users implements Serializable{
 
 	private String name;
 	private String email;
@@ -19,6 +21,11 @@ public class Users {
 		this.u_id = u_id;
 		this.cart = cart;
 	}
+	
+	public Users() {
+		
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -62,9 +69,26 @@ public class Users {
 		this.cart = cart;
 	}
 	
+	public Users getUser(String email){
+		DataAccessObject dao = new DataAccessObject();
+		Cart cart = new Cart();
+		return dao.getUserDetails(email, cart);
+	}
 	
+	public boolean validateLogin(String email,String password){
+		DataAccessObject dao = new DataAccessObject();
+		if(dao.validation(email, password))
+			return true;
+		else
+			return false;
+	}
 	
-
-	
-
+	public int addNewUser(String name,String email,String password,String contactNo,String address)
+	{
+		DataAccessObject dao = new DataAccessObject();
+		int uid =(int)Math.random();
+		int i=dao.addUser(uid,name,email,password,contactNo,address);
+		return i;
+		//System.out.print(name);
+	}
 }

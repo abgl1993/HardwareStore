@@ -9,10 +9,8 @@ public class ItemValidator implements Serializable {
 	private Item item=null; 
 	private DataAccessObject dao;
 
-public Item getItem(String item) {
-        
-	return dao.getItem(item);
-}
-
+	public Item getItem(String item) {
+		return dao.getItem(item);
+	}
 
 }

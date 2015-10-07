@@ -1,30 +1,42 @@
 package com.sapient;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.List;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
-public class Cart {
-private java.util.List<Item> cartList=new ArrayList<Item>();
-public void addToCart(Item item){
-
+public class Cart implements Serializable{
 	
-	 cartList.add(item);
-}
-public void removeFromCart(Item item){
-	cartList.remove(item);
-}
-public void displayItem(){
-	Iterator it;
-	it=cartList.iterator();
-	while(it.hasNext()){
-		 String item =it.toString();
-		 
-}
+	private List<Item> cartList;
 
+	public Cart(){
+		cartList = new ArrayList<Item>(); 
+	}
+	
+	public void addToCart(Item item){
+		 cartList.add(item);
+	}
+	
+	public void removeFromCart(Item item){
+		cartList.remove(item);
+	}
+	
+	public void displayItem(){
+		Iterator it;
+		it=cartList.iterator();
+		while(it.hasNext()){
+			 String item =it.toString();
+			 System.out.println(item);
+		}
+	}
 
-}
+	public List<Item> getCartList() {
+		return cartList;
+	}
+
+	public void setCartList(List<Item> cartList) {
+		this.cartList = cartList;
+	}
 
 }

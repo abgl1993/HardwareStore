@@ -78,4 +78,14 @@
     <servlet-name>RegistrationController</servlet-name>
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddCart</display-name>
+    <servlet-name>AddCart</servlet-name>
+    <servlet-class>com.sapient.AddCart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCart</servlet-name>
+    <url-pattern>/AddCart</url-pattern>
+  </servlet-mapping>
 </web-app>

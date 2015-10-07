@@ -7,8 +7,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.sapeint.model.User;
+import com.sapient.Cart;
+import com.sapient.DataAccessObject;
+import com.sapient.Users;
 
 /**
  * Servlet implementation class LoginController
@@ -37,17 +40,19 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email=request.getParameter("emailid");
 		String password=request.getParameter("pass");
-		User user = new User();
-		boolean status=user.validateLogin(email, password);
+		HttpSession session = request.getSession();
+		Users users = new Users();
+		boolean status=users.validateLogin(email, password);
 		if(status){
-			user.setEmail(email);
-			request.setAttribute("userBean", user);
+			users = users.getUser(email);
+			session.setAttribute("name", users.getName());
+			session.setAttribute("user", users);
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 		else{
-			PrintWriter out=new PrintWriter(System.out,true);
-			out.println("Reached to else loop");
-			//request.getRequestDispatcher("/Login.html").forward(request, response);
+			//PrintWriter out=new PrintWriter(System.out,true);
+			//out.println("Reached to else loop");
+			request.getRequestDispatcher("/Login.html").forward(request, response);
 		}
 		
 	}

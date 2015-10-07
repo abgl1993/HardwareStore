@@ -16,6 +16,7 @@ import javax.sql.DataSource;
 
 import org.apache.log4j.BasicConfigurator;
 
+
 public class DataAccessObject {
 
 	static Logger log;
@@ -66,7 +67,7 @@ public class DataAccessObject {
 	{
 		
 		try {
-			ps = con.prepareStatement("INSERT INTO USER_DETAILS VALUES (?,?,?,?,?,?,?)");
+			ps = con.prepareStatement("INSERT INTO USER_DETAILS VALUES (?,?,?,?,?,?,?,?)");
 			
 			ps.setString(1, name);
 			ps.setString(2, email);
@@ -75,10 +76,12 @@ public class DataAccessObject {
 			ps.setString(5, address);
 			ps.setString(6,null);
 			ps.setInt(7,(int) Math.random());
+			ps.setInt(8, 1);
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return 0;
 		}
 		return 1;
 		
@@ -111,7 +114,6 @@ public class DataAccessObject {
 			ps=con.prepareStatement("SELECT * FROM PRODUCT_DETAILS WHERE MODEL_NAME = ?");
 			ps.setString(1,itemName);
 			ResultSet rs = ps.executeQuery();
-			item = null;
 			if(rs.next())
 			{
 				item = new Item(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8));			
@@ -122,6 +124,23 @@ public class DataAccessObject {
 		}
 		
 		return item;
+	}
+	
+	public Users getUserDetails(String email, Cart cart){
+		Users user=null;
+		try {
+			ps=con.prepareStatement("SELECT * FROM USER_DETAILS WHERE EMAIL_ID = ?");
+			ps.setString(1,email);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next())
+			{
+				user = new Users(rs.getString(1), rs.getString(2), rs.getString(4), rs.getString(7), cart);			
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return user;
 	}
 	
 	public void dataAccessObjectClose(){

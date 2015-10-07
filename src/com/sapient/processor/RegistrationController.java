@@ -7,8 +7,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.sapeint.model.User;
+import com.sapient.Cart;
+import com.sapient.DataAccessObject;
+import com.sapient.Users;
 
 /**
  * Servlet implementation class RegistrationController
@@ -40,8 +43,18 @@ public class RegistrationController extends HttpServlet {
 	    String password=request.getParameter("pass");
 	    String contactNo=request.getParameter("contactNo");
 	    String address=request.getParameter("address");
-		User user=new User();
-		user.addNewUser(name,email,password,contactNo,address);
+		Users users=new Users();
+		int success = users.addNewUser(name,email,password,contactNo,address);
+		if(success==1){
+			HttpSession session = request.getSession();
+			users = users.getUser(email);
+			//request.setAttribute("userBean", user);
+			session.setAttribute("name", users.getName());
+			session.setAttribute("user", users);
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		}else{
+			request.getRequestDispatcher("/Login.html").forward(request, response);
+		}
 }
 
 }

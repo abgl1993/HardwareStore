@@ -11,6 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Shop Page- Ustora Demo</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -39,7 +40,37 @@
   </head>
   <body>
  <script type="text/javascript">
-function addCart(){
+ 
+ /* $(document).ready(function() {
+     $("#addCart").click(function(event){
+    	 
+    	 var item = $(this).val();
+     	$.ajax({
+     	    url: '',
+     	    type: 'POST',
+     	    data: {item : item},
+     	    success: function(response){
+     	    	//$('#stage').html(response);
+     	    	alert($('#addCart').val());
+     	    }
+     	}); 
+        //$('#stage').load('/jquery/result.html');
+     });
+  }); */
+ 
+function addtest(objectName){
+	$.ajax({
+ 	    url: 'AddCart',
+ 	    type: 'POST',
+ 	    data: {item : objectName},
+ 	    success: function(response){
+ 	    	//$('#stage').html(response);
+ 	    	alert(objectName+" added to cart");
+ 	    }
+ 	});
+}
+ 
+/* function addCart(){
 	var xmlHttp;
 	try{
 		
@@ -74,7 +105,7 @@ xmlHttp.open("POST","cart.do",true);
 item="Sealant Tape";
 xmlHttp.send("item="+item);
 
-}
+} */
 
 </script>
  
@@ -88,8 +119,8 @@ xmlHttp.send("item="+item);
                         <ul>
                             <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
+                            <li><a href="cart.jsp"><i class="fa fa-user"></i> My Cart</a></li>
+                            <li><a href="checkout.jsp"><i class="fa fa-user"></i> Checkout</a></li>
                             <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
                         </ul>
                     </div>
@@ -156,11 +187,11 @@ xmlHttp.send("item="+item);
                         <li><a href="index.jsp">Home</a></li>
                         <li class="active"><a href="shop.jsp">Shop page</a></li>
                         <li><a href="single-product.jsp">Single product</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="#">Category</a></li>
+                        <li><a href="cart.jsp">Cart</a></li>
+                        <li><a href="checkout.jsp">Checkout</a></li>
+                        <!-- <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Contact</a></li> -->
                     </ul>
                 </div>  
             </div>
@@ -194,11 +225,11 @@ xmlHttp.send("item="+item);
                         </div>
                         <h2><a href="single-product.jsp?name=${item.MODEL_NAME}">${item.MODEL_NAME}</a></h2>
                         <div class="product-carousel-price">
-                            <ins>Rs. "${item.COST}</ins> <del>Rs. ${item.COST + 50}</del>
+                            <ins>Rs. ${item.COST} </ins> <del>Rs. ${item.COST + 50}</del>
                         </div>  
                         
                         <div class="product-option-shop">
-                            <button class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" onclick="addCart()">Add to cart</button>
+                            <button class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" id="addCart" name="addCart" onclick="addtest('${item.MODEL_NAME}')" value="${item.MODEL_NAME}">Add to cart</button>
                         </div>                       
                     </div>
                 </div>
