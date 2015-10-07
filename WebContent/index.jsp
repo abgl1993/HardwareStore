@@ -1,5 +1,4 @@
 <%@page import="com.sapient.Users"%>
-<%@page import="com.sapeint.model.User"%>
 <%@page import="com.sapient.Item"%>
 <%@page import="java.util.List"%>
 <%@page import="com.sapient.DataAccessObject"%>
