@@ -1,1 +1,6 @@
 /com
+/cart_H.hbm.xml
+/users_H.hbm.xml
+/item_H.hbm.xml
+/item.hbm.xml
+/users.hbm.xml

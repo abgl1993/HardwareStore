@@ -19,7 +19,8 @@
 
               <!-- Mapping files -->
 
-    <mapping resource="users_H.hbm.xml" />
+    <mapping resource="users.hbm.xml" />
+    <mapping resource="item.hbm.xml" />
 
     
     </session-factory>

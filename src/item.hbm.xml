@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+   <class name="com.sapient.Item" table="ITEM_H">
+      
+      <id name="uId" type="long" column="UID">
+         <generator class="assigned"/>
+      </id>
+      
+      <property name="brandName" >
+      	<column name="BRANDNAME" ></column>
+      </property>
+      <property name="productType">
+      	<column name="PRODUCTTYPE"></column>
+      </property>
+      
+      <property name="modelName">
+      <column name="MODELNAME"></column>
+      </property>
+      
+      <property name="utility">
+      <column name="UTILITY"></column>
+      </property>
+      
+      <property name="productQuantity">
+      <column name="PRODUCTQUANITY"></column>
+      </property>
+      
+      <property name="cost">
+      <column name="COST"></column>
+      </property>
+      
+      <property name="description">
+      <column name="DESCRIPTION"></column>
+      </property>
+   </class>
+</hibernate-mapping>
