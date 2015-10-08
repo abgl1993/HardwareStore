@@ -8,11 +8,11 @@ public class Users implements Serializable{
 	private String email;
 	private String address;
 	private String password;
-	private String uId;
+	private int uId;
 	private String contactNo;
 	private Cart cart;
 	
-	public Users(String name, String email, String address, String u_id,
+	public Users(String name, String email, String address, int u_id,
 			Cart cart) {
 		
 		this.name = name;
@@ -50,18 +50,23 @@ public class Users implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getU_id() {
+		
+	public int getuId() {
 		return uId;
 	}
-	public void setU_id(String u_ID) {
-		uId = u_ID;
+
+	public void setuId(int uId) {
+		this.uId = uId;
 	}
-	public String getContact_no() {
+
+	public String getContactNo() {
 		return contactNo;
 	}
-	public void setContact_no(String contact_no) {
-		this.contactNo = contact_no;
+
+	public void setContactNo(String contactNo) {
+		this.contactNo = contactNo;
 	}
+
 	public Cart getCart() {
 		return cart;
 	}
@@ -72,7 +77,7 @@ public class Users implements Serializable{
 	public Users getUser(String email){
 		DataAccessObject dao = new DataAccessObject();
 		Cart cart = new Cart();
-		return dao.getUserDetails(email, cart);
+		return dao.getUserDetails(email);
 	}
 	
 	public boolean validateLogin(String email,String password){
@@ -86,7 +91,7 @@ public class Users implements Serializable{
 	public int addNewUser(String name,String email,String password,String contactNo,String address)
 	{
 		DataAccessObject dao = new DataAccessObject();
-		String uid = (int)Math.random()+"";
+		int uid = (int)Math.random();
 		int i=dao.addUser(uid,name,email,password,contactNo,address);
 		return i;
 		//System.out.print(name);

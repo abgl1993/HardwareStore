@@ -6,32 +6,32 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
  
  <hibernate-mapping>
-   <class name="com.sapient.Item" table="ITEM_H">
+   <class name="com.sapient.Item" table="PRODUCT_DETAILS">
       
-      <id name="uId" type="long" column="UID">
+      <id name="pId" type="int" column="I_ID">
          <generator class="assigned"/>
       </id>
       
       <property name="brandName" >
-      	<column name="BRANDNAME" ></column>
+      	<column name="BRAND_NAME" ></column>
       </property>
       <property name="productType">
-      	<column name="PRODUCTTYPE"></column>
+      	<column name="PRODUCT_TYPE"></column>
       </property>
       
       <property name="modelName">
-      <column name="MODELNAME"></column>
+      <column name="MODEL_NAME"></column>
       </property>
       
       <property name="utility">
       <column name="UTILITY"></column>
       </property>
       
-      <property name="productQuantity">
-      <column name="PRODUCTQUANITY"></column>
+      <property name="productQuantity" type="int">
+      <column name="PRO_QUANTITY"></column>
       </property>
       
-      <property name="cost">
+      <property name="cost" type="int">
       <column name="COST"></column>
       </property>
       

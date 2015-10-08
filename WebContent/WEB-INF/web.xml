@@ -9,7 +9,17 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
   <servlet>
+  	<servlet-name>ServletFC</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ServletFC</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <!-- <servlet>
     <description></description>
     <display-name>Test</display-name>
     <servlet-name>Test</servlet-name>
@@ -87,5 +97,5 @@
   <servlet-mapping>
     <servlet-name>AddCart</servlet-name>
     <url-pattern>/AddCart</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
 </web-app>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+   <class name="com.sapient.Order" table="ORDER">
+  
+<composite-id>
+<key-property name="oId" column="OrderID"  />
+<key-property name="uId" column="UserID" />
+<key-property name="iId" column="ItemID" />
+</composite-id>
+   </class>
+</hibernate-mapping>

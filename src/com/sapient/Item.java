@@ -3,7 +3,7 @@ package com.sapient;
 import java.io.Serializable;
 
 public class Item implements Serializable{
-	private String uId;
+	private int pId;
 	private String brandName;
 	private String productType;
 	private String modelName;
@@ -12,11 +12,13 @@ public class Item implements Serializable{
 	private int cost;
 	private String description;
 	
+	public Item() {
+		// TODO Auto-generated constructor stub
+	}
 	
-	
-	public Item(String uid, String brandName, String productType, String modelName, String utility, int proQuantity, int cost, String description){
+	public Item(int uid, String brandName, String productType, String modelName, String utility, int proQuantity, int cost, String description){
 
-		this.uId = uid;
+		this.pId = uid;
 		this.brandName = brandName;
 		this.productType = productType;
 		this.modelName = modelName;
@@ -26,67 +28,103 @@ public class Item implements Serializable{
 		this.description = description;
 	}
 	
-	public String getU_ID() {
-		return uId;
-	}
-	public void setU_ID(String u_ID) {
-		uId = u_ID;
-	}
-	public String getBRAND_NAME() {
-		return brandName;
-	}
-	public void setBRAND_NAME(String bRAND_NAME) {
-		brandName = bRAND_NAME;
-	}
-	public String getPRODUCT_TYPE() {
-		return productType;
-	}
-	public void setPRODUCT_TYPE(String pRODUCT_TYPE) {
-		productType = pRODUCT_TYPE;
-	}
-	public String getMODEL_NAME() {
-		return modelName;
-	}
-	public void setMODEL_NAME(String mODEL_NAME) {
-		modelName = mODEL_NAME;
-	}
-	public String getUTILITY() {
-		return utility;
-	}
-	public void setUTILITY(String uTILITY) {
-		utility = uTILITY;
+	
+	public int getpId() {
+		return pId;
 	}
 
-	
-	
-	public int getPRO_QUANTITY() {
+	public void setpId(int pId) {
+		this.pId = pId;
+	}
+
+	public String getBrandName() {
+		return brandName;
+	}
+
+
+
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
+	}
+
+
+
+	public String getProductType() {
+		return productType;
+	}
+
+
+
+	public void setProductType(String productType) {
+		this.productType = productType;
+	}
+
+
+
+	public String getModelName() {
+		return modelName;
+	}
+
+
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+
+
+
+	public String getUtility() {
+		return utility;
+	}
+
+
+
+	public void setUtility(String utility) {
+		this.utility = utility;
+	}
+
+
+
+	public int getProductQuantity() {
 		return productQuantity;
 	}
 
 
-	public void setPRO_QUANTITY(int pRO_QUANTITY) {
-		productQuantity = pRO_QUANTITY;
+
+	public void setProductQuantity(int productQuantity) {
+		this.productQuantity = productQuantity;
 	}
 
-	public int getCOST() {
+
+
+	public int getCost() {
 		return cost;
 	}
 
-	public void setCOST(int cOST) {
-		cost = cOST;
+
+
+	public void setCost(int cost) {
+		this.cost = cost;
 	}
 
-	public String getDESCRIPTION() {
+
+
+	public String getDescription() {
 		return description;
 	}
-	public void setDESCRIPTION(String dESCRIPTION) {
-		description = dESCRIPTION;
+
+
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	
+
+
+
 	public String getNameId(){
-		if(Integer.parseInt(uId)<10)
-			return "0"+Integer.parseInt(uId);
+		if(pId<10)
+			return "0"+pId;
 		else
-			return ""+Integer.parseInt(uId);
+			return ""+pId;
 	}
 }

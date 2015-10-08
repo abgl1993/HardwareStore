@@ -1,19 +1,9 @@
 package com.sapient;
 
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 
 import org.apache.log4j.BasicConfigurator;
 import org.hibernate.Criteria;
@@ -28,29 +18,35 @@ public class DataAccessObject {
 
 	private SessionFactory factory;
 
-	Logger log = null;
+	Logger log= null;
+	
+	public DataAccessObject() {
+		// TODO Auto-generated constructor stub
+		BasicConfigurator.configure();
+		factory = new Configuration().configure().buildSessionFactory();
+	}
 
 	public boolean validation(String emailid, String password) {
-		factory = new Configuration().configure().buildSessionFactory();
-
 		Session session = factory.openSession();
 		Transaction tx = null;
 
 		try {
-			tx = session.beginTransaction();
+			//tx = session.beginTransaction();
 			List users = session.createQuery("FROM Users").list();
+			if(users==null)
+				return false;
 			for (Iterator iterator = users.iterator(); iterator.hasNext();) {
 				Users user = (Users) iterator.next();
 				if (emailid == user.getEmail()
 						&& password == user.getPassword()) {
 					return true;
 				}
-				tx.commit();
+				//tx.commit();
 			}
 
 		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
+			//if (tx != null)
+			//	tx.rollback();
 			e.printStackTrace();
 		} finally {
 			session.close();
@@ -59,36 +55,35 @@ public class DataAccessObject {
 		return false;
 	}
 
-	public Users getUserDetails(String email, Cart cart) {
+	public Users getUserDetails(String email) {
 
 		Session session = factory.openSession();
 		Transaction tx = null;
 		Logger log = null;
 		try {
-			tx = session.beginTransaction();
+			//tx = session.beginTransaction();
 			List users = session.createQuery("FROM Users").list();
 			for (Iterator iterator = users.iterator(); iterator.hasNext();) {
 				Users user = (Users) iterator.next();
-				if (email == user.getEmail()) {
+				if (email.equals(user.getEmail())) {
 					return user;
 				}
 			}
-			tx.commit();
+			//tx.commit();
 		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
+			//if (tx != null)
+			//	tx.rollback();
 			e.printStackTrace();
 		} finally {
 			session.close();
 		}
-		log.info("User does not exists!!!!");
+		//log.info("User does not exists!!!!");
 		return null;
 	}
 
 
-public int addUser(String uid,String name,String email,String password,String contactNo,String address)
+public int addUser(int uid,String name,String email,String password,String contactNo,String address)
 {
-	
 	Session session = factory.openSession();
     Transaction tx = null;
     Integer uID = null;
@@ -96,7 +91,9 @@ public int addUser(String uid,String name,String email,String password,String co
        tx = session.beginTransaction();
        Cart cart = new Cart();
        Users user = new Users(name, email, address,uid,cart);
-       uID = (Integer) session.save(user); 
+       user.setPassword(password);
+       user.setContactNo(contactNo);
+       session.save(user); 
        tx.commit();
     }catch (HibernateException e) {
        if (tx!=null) tx.rollback();
@@ -117,16 +114,16 @@ public List<Item> getProductList(){
 	Transaction tx = null;
 
 	try {
-		tx = session.beginTransaction();
+		//tx = session.beginTransaction();
 		List item = session.createQuery("FROM Item").list();
 		for (Iterator iterator = item.iterator(); iterator.hasNext();) {
 			items.add((Item) iterator.next());
-			tx.commit();
+		//tx.commit();
 		}
 
 	} catch (HibernateException e) {
-		if (tx != null)
-			tx.rollback();
+		//if (tx != null)
+		//	tx.rollback();
 		e.printStackTrace();
 	} finally {
 		session.close();

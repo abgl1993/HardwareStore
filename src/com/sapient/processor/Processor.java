@@ -52,7 +52,7 @@ public class Processor extends HttpServlet {
 				cart=new Cart();
 				session.setAttribute("ShoppingCart", cart);
 			}else{
-				if(valiadtedItem.getPRO_QUANTITY()>1){
+				if(valiadtedItem.getProductQuantity()>1){
 				cart.addToCart(valiadtedItem);
 			}
 		}

@@ -8,8 +8,10 @@
  <hibernate-mapping>
    <class name="com.sapient.Users" table="USERS_H">
       
-      <id name="uId" type="long" column="UID">
-         <generator class="assigned"/>
+      <id name="uId" type="int" column="U_ID">
+         <generator class="increment">
+         	<param name="increment">USER_UID</param>
+      </generator>
       </id>
       
       <property name="name" >
