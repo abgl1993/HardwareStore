@@ -3,6 +3,7 @@
 <%@page import="com.sapient.DataAccessObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -188,7 +189,7 @@
                                DataAccessObject dao = new DataAccessObject();
                                Item item = dao.getItem(productName);
                                String imageName="";
-                               if(Integer.parseInt(item.getU_ID())<9)
+                               if(item.getpId()<9)
                             		imageName = "Image0";
                             	else
                             		imageName = "Image";
@@ -198,7 +199,7 @@
                             <div class="col-sm-6">
                                 <div class="product-images">
                                     <div class="product-main-img">
-                                        <img src="<% out.println("img/Indoor/"+imageName+(Integer.parseInt(item.getU_ID()))+".jpg"); %>" alt="">
+                                        <img src="<% out.println("img/Indoor/"+imageName+(item.getpId())+".jpg"); %>" alt="">
                                     </div>
                                     
                                     <!-- <div class="product-gallery">
@@ -211,9 +212,9 @@
                             
                             <div class="col-sm-6">
                                 <div class="product-inner">
-                                    <h2 class="product-name"><%out.println(item.getMODEL_NAME());%></h2>
+                                    <h2 class="product-name"><%out.println(item.getModelName());%></h2>
                                     <div class="product-inner-price">
-                                        <ins><%out.println("Rs. "+item.getCOST());%></ins> <del><%out.println("Rs. "+(item.getCOST()+25));%></del>
+                                        <ins><%out.println("Rs. "+item.getCost());%></ins> <del><%out.println("Rs. "+(item.getCost()+25));%></del>
                                     </div>    
                                     
                                     <form action="" class="cart">
@@ -235,7 +236,7 @@
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade in active" id="home">
                                                 <h2>Product Description</h2>  
-                                                <p><%out.println(item.getDESCRIPTION());%></p>
+                                                <p><%out.println(item.getDescription());%></p>
                                                 <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, diam in consequat iaculis, est purus iaculis mauris, imperdiet facilisis ante ligula at nulla. Quisque volutpat nulla risus, id maximus ex aliquet ut. Suspendisse potenti. Nulla varius lectus id turpis dignissim porta. Quisque magna arcu, blandit quis felis vehicula, feugiat gravida diam. Nullam nec turpis ligula. Aliquam quis blandit elit, ac sodales nisl. Aliquam eget dolor eget elit malesuada aliquet. In varius lorem lorem, semper bibendum lectus lobortis ac.</p>
 
                                                 <p>Mauris placerat vitae lorem gravida viverra. Mauris in fringilla ex. Nulla facilisi. Etiam scelerisque tincidunt quam facilisis lobortis. In malesuada pulvinar neque a consectetur. Nunc aliquam gravida purus, non malesuada sem accumsan in. Morbi vel sodales libero.</p> -->
@@ -281,21 +282,21 @@
                             		imageName = "Image0";
                             	else
                             		imageName = "Image";
-                            	oldPrice = items.get(i).getCOST()+25;				             	
+                            	oldPrice = items.get(i).getCost()+25;				             	
 				             %>
                                 <div class="single-product">
                                     <div class="product-f-image">
                                         <img src="<% out.println("img/Indoor/"+imageName+(i+1)+".jpg"); %>" alt="">
                                         <div class="product-hover">
                                             <a href="" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                            <a href="single-product.jsp?name=<%out.println(items.get(i).getMODEL_NAME());%>" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                            <a href="single-product.jsp?name=<%out.println(items.get(i). getModelName());%>" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                                         </div>
                                     </div>
 
-                                    <h2><a href="single-product.jsp?name=<%out.println(items.get(i).getMODEL_NAME());%>"><%out.println(items.get(i).getMODEL_NAME());%></a></h2>
+                                    <h2><a href="single-product.jsp?name=<%out.println(items.get(i). getModelName());%>"><%out.println(items.get(i). getModelName());%></a></h2>
 
                                     <div class="product-carousel-price">
-                                        <ins><% out.print("Rs. "+items.get(i).getCOST()); %></ins> <del><% out.print("Rs. "+oldPrice); %></del>
+                                        <ins><% out.print("Rs. "+items.get(i).getCost()); %></ins> <del><% out.print("Rs. "+oldPrice); %></del>
                                     </div> 
                                 </div> 
                                 <!-- -------------------------------------------------------------- -->  

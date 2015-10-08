@@ -184,9 +184,9 @@ xmlHttp.send("item="+item);
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.jsp">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li class="active"><a href="shop.jsp">Shop page</a></li>
-                        <li><a href="single-product.jsp">Single product</a></li>
+                        <li><a href="/product">Single product</a></li>
                         <li><a href="cart.jsp">Cart</a></li>
                         <li><a href="checkout.jsp">Checkout</a></li>
                         <!-- <li><a href="#">Category</a></li>
@@ -221,9 +221,9 @@ xmlHttp.send("item="+item);
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <a href="single-product.jsp?name=${item.MODEL_NAME}"><img src="img/Indoor/Image${item.nameId}.jpg" alt=""></a>
+                            <a href="/product?name=${item.MODEL_NAME}"><img src="img/Indoor/Image${item.nameId}.jpg" alt=""></a>
                         </div>
-                        <h2><a href="single-product.jsp?name=${item.MODEL_NAME}">${item.MODEL_NAME}</a></h2>
+                        <h2><a href="/product?name=${item.MODEL_NAME}">${item.MODEL_NAME}</a></h2>
                         <div class="product-carousel-price">
                             <ins>Rs. ${item.COST} </ins> <del>Rs. ${item.COST + 50}</del>
                         </div>  

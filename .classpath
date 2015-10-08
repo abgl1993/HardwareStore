@@ -17,7 +17,12 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ojdbc14.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstl-standard.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-logging-api-1.1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-3.3.2.GA.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/log4j"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring4.0.5"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate3.3.2"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

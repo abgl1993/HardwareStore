@@ -1,6 +1,7 @@
 package com.sapient;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Item implements Serializable{
 	private int pId;
@@ -119,12 +120,20 @@ public class Item implements Serializable{
 		this.description = description;
 	}
 
-
-
 	public String getNameId(){
 		if(pId<10)
 			return "0"+pId;
 		else
 			return ""+pId;
+	}
+	
+	public List getProductList(){
+		DataAccessObject dao= new DataAccessObject();
+		return dao.getProductList();
+	}
+	
+	public Item getItem(String name){
+		DataAccessObject dao= new DataAccessObject();
+		return dao.getItem(name);
 	}
 }
