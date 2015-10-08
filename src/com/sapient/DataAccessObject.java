@@ -37,8 +37,8 @@ public class DataAccessObject {
 				return false;
 			for (Iterator iterator = users.iterator(); iterator.hasNext();) {
 				Users user = (Users) iterator.next();
-				if (emailid == user.getEmail()
-						&& password == user.getPassword()) {
+				if (emailid.equals(user.getEmail())
+						&& password.equals(user.getPassword())) {
 					return true;
 				}
 				//tx.commit();
@@ -51,7 +51,7 @@ public class DataAccessObject {
 		} finally {
 			session.close();
 		}
-		log.info("Invalid Id and password");
+		//log.info("Invalid Id and password");
 		return false;
 	}
 
@@ -81,6 +81,25 @@ public class DataAccessObject {
 		return null;
 	}
 
+	public Users cartState(Users user,Cart cart) {
+
+		Session session = factory.openSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			session.saveOrUpdate(user);
+			tx.commit();
+			return user;
+		} catch (HibernateException e) {
+			if (tx!=null) tx.rollback();
+			e.printStackTrace();
+		}
+		finally {
+		       session.close(); 
+		    }
+		return null;
+	}
+
 
 public int addUser(int uid,String name,String email,String password,String contactNo,String address)
 {
@@ -107,28 +126,20 @@ public int addUser(int uid,String name,String email,String password,String conta
 
 public List<Item> getProductList(){
 	List<Item> items = new ArrayList<Item>();
-	
 	factory = new Configuration().configure().buildSessionFactory();
-
 	Session session = factory.openSession();
 	Transaction tx = null;
 
 	try {
-		//tx = session.beginTransaction();
 		List item = session.createQuery("FROM Item").list();
 		for (Iterator iterator = item.iterator(); iterator.hasNext();) {
 			items.add((Item) iterator.next());
-		//tx.commit();
 		}
-
 	} catch (HibernateException e) {
-		//if (tx != null)
-		//	tx.rollback();
 		e.printStackTrace();
 	} finally {
 		session.close();
 	}
-	
 	return items;
 }
 
@@ -141,7 +152,7 @@ public Item getItem(String itemName){
        tx = session.beginTransaction();
        Criteria cr = session.createCriteria(Item.class);
        // Add restriction.
-       cr.add(Restrictions.gt("modelName",itemName));
+       cr.add(Restrictions.like("modelName",itemName));
        List items = cr.list();
 
        for (Iterator iterator = items.iterator(); iterator.hasNext();){
@@ -155,8 +166,7 @@ public Item getItem(String itemName){
     }finally {
        session.close(); 
     }
-	
-	log.info("Item not found");
+	//log.info("Item not found");
 	return null;
 }
 

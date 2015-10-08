@@ -39,4 +39,10 @@ public class Cart implements Serializable{
 		this.cartList = cartList;
 	}
 
+	/*public int cartTotal(){
+		int sum = 0;
+		for(int i=0;i< cartList.size();i++)
+			sum = sum + cartList.get(i).getCost();
+		return sum;
+	}*/
 }

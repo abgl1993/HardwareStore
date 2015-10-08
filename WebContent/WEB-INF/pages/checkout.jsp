@@ -106,11 +106,11 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.jsp">Home</a></li>
-                        <li><a href="shop.jsp">Shop page</a></li>
-                        <li><a href="single-product.jsp">Single product</a></li>
-                        <li><a href="cart.jsp">Cart</a></li>
-                        <li class="active"><a href="checkout.jsp">Checkout</a></li>
+                        <li><a href="/HardwareStore">Home</a></li>
+                        <li><a href="/HardwareStore/shop">Shop page</a></li>
+                        <li><a href="/HardwareStore/single-product">Single product</a></li>
+                        <li><a href="/HardwareStore/cart">Cart</a></li>
+                        <li class="active"><a href="/HardwareStore/checkout">Checkout</a></li>
                         <!-- <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
                         <li><a href="#">Contact</a></li> -->
@@ -730,7 +730,7 @@
                     </div>
                 </div>
                 
-                <div class="col-md-3 col-sm-6">
+                <!-- <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">Categories</h2>
                         <ul>
@@ -741,7 +741,7 @@
                             <li><a href="">Gadets</a></li>
                         </ul>                        
                     </div>
-                </div>
+                </div> -->
                 
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-newsletter">

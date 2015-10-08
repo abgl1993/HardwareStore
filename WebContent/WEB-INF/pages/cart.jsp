@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+    <%@taglib prefix="linkc" uri="http://java.sun.com/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -14,15 +16,15 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
     
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="<linkc:url value="/css/bootstrap.min.css"/>">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="<linkc:url value="/css/font-awesome.min.css"/>">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="<linkc:url value="/css/owl.carousel.css"/>">
+    <link rel="stylesheet" href="<linkc:url value="/css/style.css"/>">
+    <link rel="stylesheet" href="<linkc:url value="/css/responsive.css"/>">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -106,11 +108,11 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.jsp">Home</a></li>
-                        <li><a href="shop.jsp">Shop page</a></li>
-                        <li><a href="single-product.jsp">Single product</a></li>
-                        <li class="active"><a href="cart.jsp">Cart</a></li>
-                        <li><a href="checkout.jsp">Checkout</a></li>
+                        <li><a href="/HardwareStore">Home</a></li>
+                        <li><a href="/HardwareStore/shop">Shop page</a></li>
+                        <li><a href="/HardwareStore/product">Single product</a></li>
+                        <li class="active"><a href="/HardwareStore/cart">Cart</a></li>
+                        <li><a href="/HardwareStore/checkout">Checkout</a></li>
                         <!-- <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
                         <li><a href="#">Contact</a></li> -->
@@ -198,44 +200,63 @@
                                     <thead>
                                         <tr>
                                             <!-- <th class="product-remove">&nbsp;</th> -->
-                                            <th class="product-thumbnail">&nbsp;</th>
-                                            <th class="product-name">Product</th>
+                                            <th class="product-thumbnail">Product</th>
+                                            <th class="product-name">Product Name</th>
                                             <th class="product-price">Price</th>
                                             <!-- <th class="product-quantity">Quantity</th> -->
                                             <!-- <th class="product-subtotal">Total</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    
+                           <%--  <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="img/Indoor/Image${item.nameId}.jpg" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link" onclick="addtest('${item.modelName}');return false;" value="${item.modelName}"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="product?name=${item.modelName}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">${item.modelName}</a></h2>
+                                
+                                <div class="product-carousel-price">
+                                    <ins>Rs. ${item.cost}</ins> <del>Rs. ${item.cost + 50}</del>
+                                </div> 
+                            </div>
+                </c:forEach> --%>
+                                        <c:forEach items="${cartList}" var="item">
                                         <tr class="cart_item">
-                                            <!-- <td class="product-remove">
-                                                <a title="Remove this item" class="remove" href="#">×</a> 
-                                            </td> -->
 
                                             <td class="product-thumbnail">
-                                                <a href="single-product.html"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="img/product-thumb-2.jpg"></a>
+                                                <a href="/HardwareStore/product"><img src="img/Indoor/Image${item.nameId}.jpg" alt=""></a>
                                             </td>
 
                                             <td class="product-name">
-                                                <a href="single-product.html">Ship Your Idea</a> 
-                                            </td>
+                                                <a href="/HardwareStore/product">${item.modelName}</a> 
+                                            </td> 
+                                            
 
                                             <td class="product-price">
-                                                <span class="amount">£15.00</span> 
+                                                <span class="amount">Rs. ${item.cost}</span> 
                                             </td>
 
-                                            <!-- <td class="product-quantity">
+                                            <%-- <td class="product-quantity">
                                                 <div class="quantity buttons_added">
                                                     <input type="button" class="minus" value="-">
                                                     <input type="number" size="4" class="input-text qty text" title="Qty" value="1" min="0" step="1">
                                                     <input type="button" class="plus" value="+">
                                                 </div>
-                                            </td> -->
+                                            </td>
 
-                                            <!-- <td class="product-subtotal">
-                                                <span class="amount">£15.00</span> 
-                                            </td> -->
+                                            <td class="product-subtotal">
+                                                <span class="amount">Rs. ${item.cost}</span> 
+                                            </td>
+                                --%>             
                                         </tr>
-                                        <tr>
+                                         
+                                        
+                                        <!-- <tr>
                                             <td class="actions" colspan="6">
                                                 <div class="coupon">
                                                     <label for="coupon_code">Coupon:</label>
@@ -245,7 +266,9 @@
                                                 <input type="submit" value="Update Cart" name="update_cart" class="button">
                                                 <input type="submit" value="Checkout" name="proceed" class="checkout-button button alt wc-forward">
                                             </td>
-                                        </tr>
+                                        </tr> -->
+                                        
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </form>
@@ -286,7 +309,7 @@
                                     <tbody>
                                         <tr class="cart-subtotal">
                                             <th>Cart Subtotal</th>
-                                            <td><span class="amount">£15.00</span></td>
+                                            <td><span class="amount">Rs. ${total}</span></td>
                                         </tr>
 
                                         <tr class="shipping">

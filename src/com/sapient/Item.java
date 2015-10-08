@@ -1,9 +1,14 @@
 package com.sapient;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Item implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int pId;
 	private String brandName;
 	private String productType;
@@ -127,9 +132,19 @@ public class Item implements Serializable{
 			return ""+pId;
 	}
 	
-	public List getProductList(){
+	public List<String> getProductListNames(){
 		DataAccessObject dao= new DataAccessObject();
-		return dao.getProductList();
+		List<Item> itemList=dao.getProductList();
+		List<String> items = new ArrayList<String>();
+		for(int i = 0 ; i < itemList.size(); i++)
+			items.add(itemList.get(i).getModelName());
+		return items;
+	}
+	
+	public List<Item> getProductList(){
+		DataAccessObject dao= new DataAccessObject();
+		List<Item> itemList=dao.getProductList();
+		return itemList;
 	}
 	
 	public Item getItem(String name){

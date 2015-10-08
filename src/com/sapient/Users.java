@@ -96,4 +96,9 @@ public class Users implements Serializable{
 		return i;
 		//System.out.print(name);
 	}
+	
+	public void saveState(){
+		DataAccessObject dao = new DataAccessObject();
+		dao.cartState(this, cart);
+	}
 }

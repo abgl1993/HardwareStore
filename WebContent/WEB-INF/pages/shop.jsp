@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+    <%@taglib prefix="linkc" uri="http://java.sun.com/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -19,15 +20,15 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
     
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="<linkc:url value="/css/bootstrap.min.css"/>">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="<linkc:url value="/css/font-awesome.min.css"/>">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="<linkc:url value="/css/owl.carousel.css"/>">
+    <link rel="stylesheet" href="<linkc:url value="/css/style.css"/>">
+    <link rel="stylesheet" href="<linkc:url value="/css/responsive.css"/>">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -60,7 +61,7 @@
  
 function addtest(objectName){
 	$.ajax({
- 	    url: 'AddCart',
+		url: '/HardwareStore/AddCart',
  	    type: 'POST',
  	    data: {item : objectName},
  	    success: function(response){
@@ -184,11 +185,11 @@ xmlHttp.send("item="+item);
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="/">Home</a></li>
-                        <li class="active"><a href="shop.jsp">Shop page</a></li>
-                        <li><a href="/product">Single product</a></li>
-                        <li><a href="cart.jsp">Cart</a></li>
-                        <li><a href="checkout.jsp">Checkout</a></li>
+                        <li><a href="/HardwareStore">Home</a></li>
+                        <li class="active"><a href="/HardwareStore/shop">Shop page</a></li>
+                        <li><a href="/HardwareStore/product">Single product</a></li>
+                        <li><a href="/HardwareStore/cart">Cart</a></li>
+                        <li><a href="/HardwareStore/checkout">Checkout</a></li>
                         <!-- <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
                         <li><a href="#">Contact</a></li> -->
@@ -216,20 +217,20 @@ xmlHttp.send("item="+item);
         <div class="container">
             <div class="row">
              <!--------------------------------- PRODUCTS ----------------------------------->
-             <jsp:useBean id="items" class="com.sapient.DataAccessObject" scope="request"/>
+             <jsp:useBean id="items" class="com.sapient.Item" scope="request"/>
             	<c:forEach items="${requestScope.items.productList}" var="item">
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <a href="/product?name=${item.MODEL_NAME}"><img src="img/Indoor/Image${item.nameId}.jpg" alt=""></a>
+                            <a href="/HardwareStore/product?name=${item.modelName}"><img src="img/Indoor/Image${item.nameId}.jpg" alt=""></a>
                         </div>
-                        <h2><a href="/product?name=${item.MODEL_NAME}">${item.MODEL_NAME}</a></h2>
+                        <h2><a href="/HardwareStore/product?name=${item.modelName}">${item.modelName}</a></h2>
                         <div class="product-carousel-price">
-                            <ins>Rs. ${item.COST} </ins> <del>Rs. ${item.COST + 50}</del>
+                            <ins>Rs. ${item.cost} </ins> <del>Rs. ${item.cost + 50}</del>
                         </div>  
                         
                         <div class="product-option-shop">
-                            <button class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" id="addCart" name="addCart" onclick="addtest('${item.MODEL_NAME}')" value="${item.MODEL_NAME}">Add to cart</button>
+                            <button class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" id="addCart" name="addCart" onclick="addtest('${item.modelName}')" value="${item.modelName}">Add to cart</button>
                         </div>                       
                     </div>
                 </div>

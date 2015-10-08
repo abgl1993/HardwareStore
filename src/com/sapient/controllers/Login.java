@@ -57,6 +57,8 @@ public class Login {
 	@RequestMapping(value="/logout", method= RequestMethod.GET)
 	public String logout(HttpServletRequest request, HttpServletResponse response){
 		HttpSession session = request.getSession();
+		Users user = (Users)session.getAttribute("user");
+		user.saveState();
 		session.invalidate();
 		return "Login";
 	}
