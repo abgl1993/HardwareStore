@@ -151,4 +151,17 @@ public class Item implements Serializable{
 		DataAccessObject dao= new DataAccessObject();
 		return dao.getItem(name);
 	}
+	
+	// ----------------------------------- OVER RIDDEN TO REMOVE ITEM FROM CART
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return pId;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return ((Item)obj).pId==this.pId;
+	}
 }

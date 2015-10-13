@@ -35,7 +35,7 @@
       </property>
       
       <property name="cart">
-      <column name="CART"></column>
+      <column name="CART" length="5000"></column> <!-- Length = 5000 to store Cart Object -->
       </property>
    </class>
 </hibernate-mapping>

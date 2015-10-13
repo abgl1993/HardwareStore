@@ -14,7 +14,7 @@
 	function addtest(objectName){
 	$.ajax({
  	    url: '/HardwareStore/AddCart',
- 	    type: 'POST',
+ 	    type: 'GET',
  	    data: {item : objectName},
  	    success: function(response){
  	    	//$('#stage').html(response);

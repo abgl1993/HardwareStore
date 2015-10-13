@@ -5,6 +5,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+	function removetest(objectName){
+	$.ajax({
+ 	    url: '/HardwareStore/RemoveCart',
+ 	    type: 'GET',
+ 	    data: {item : objectName},
+ 	    success: function(response){
+ 	    	alert(objectName+" removed from cart");
+ 	    }
+ 	});
+}
+	
+	$(document).on('click','img.removebutton', function() {
+	  $(this).closest('tr').fadeOut("slow");;
+	  return false;
+	});
+	
+</script>
+  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -196,13 +216,14 @@
                     <div class="product-content-right">
                         <div class="woocommerce">
                             <form method="post" action="#">
-                                <table cellspacing="0" class="shop_table cart">
+                                <table id="cartTable" cellspacing="0" class="shop_table cart">
                                     <thead>
                                         <tr>
                                             <!-- <th class="product-remove">&nbsp;</th> -->
                                             <th class="product-thumbnail">Product</th>
                                             <th class="product-name">Product Name</th>
                                             <th class="product-price">Price</th>
+                                            <th class="product-price">Remove</th>
                                             <!-- <th class="product-quantity">Quantity</th> -->
                                             <!-- <th class="product-subtotal">Total</th> -->
                                         </tr>
@@ -225,7 +246,7 @@
                                 </div> 
                             </div>
                 </c:forEach> --%>
-                                        <c:forEach items="${cartList}" var="item">
+                                   <c:forEach items="${cartList}" var="item">
                                         <tr class="cart_item">
 
                                             <td class="product-thumbnail">
@@ -239,6 +260,10 @@
 
                                             <td class="product-price">
                                                 <span class="amount">Rs. ${item.cost}</span> 
+                                            </td>
+                                            
+                                            <td class="product-price">
+                                                <a href="#" onclick="removetest('${item.modelName}');return false;" value="${item.modelName}"><img class="removebutton" src="img/Remove.png" width="25px" height="25px"/></a>
                                             </td>
 
                                             <%-- <td class="product-quantity">

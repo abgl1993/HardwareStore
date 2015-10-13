@@ -97,8 +97,11 @@ public class Users implements Serializable{
 		//System.out.print(name);
 	}
 	
-	public void saveState(){
+	public boolean saveState(Users user){
 		DataAccessObject dao = new DataAccessObject();
-		dao.cartState(this, cart);
+		if(dao.cartState(user, cart)==null){
+			return false;
+		}
+		return true;
 	}
 }

@@ -58,9 +58,12 @@ public class Login {
 	public String logout(HttpServletRequest request, HttpServletResponse response){
 		HttpSession session = request.getSession();
 		Users user = (Users)session.getAttribute("user");
-		user.saveState();
-		session.invalidate();
-		return "Login";
+		if(user.saveState(user)){
+			session.invalidate();
+			return "Login";
+		}else{
+			return "index";
+		}
 	}
 	
 }

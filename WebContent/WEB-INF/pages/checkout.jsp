@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+    <%@taglib prefix="linkc" uri="http://java.sun.com/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -14,15 +16,15 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
     
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="<linkc:url value="/css/bootstrap.min.css"/>">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="<linkc:url value="/css/font-awesome.min.css"/>">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="<linkc:url value="/css/owl.carousel.css"/>">
+    <link rel="stylesheet" href="<linkc:url value="/css/style.css"/>">
+    <link rel="stylesheet" href="<linkc:url value="/css/responsive.css"/>">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -586,21 +588,21 @@
                                                 <p id="shipping_last_name_field" class="form-row form-row-last validate-required">
                                                     <label class="" for="shipping_last_name">Name <abbr title="required" class="required">*</abbr>
                                                     </label>
-                                                    <input type="text" value="" placeholder="" id="shipping_name" name="shipping_name" class="input-text ">
+                                                    <input type="text" value="${sessionScope['user'].name}" placeholder="" id="shipping_name" name="shipping_name" class="input-text ">
                                                 </p>
                                                 <div class="clear"></div>
 
                                                 <p id="shipping_address_1_field" class="form-row form-row-wide address-field validate-required">
                                                     <label class="" for="shipping_address_1">Address <abbr title="required" class="required">*</abbr>
                                                     </label>
-                                                    <input type="text" value="" placeholder="Street address" id="shipping_address_1" name="shipping_address_1" class="input-text ">
+                                                    <input type="text" value="${sessionScope['user'].address}" placeholder="Street address" id="shipping_address_1" name="shipping_address_1" class="input-text ">
                                                 </p>
 
-                                                <p id="shipping_postcode_field" class="form-row form-row-last address-field validate-required validate-postcode" data-o_class="form-row form-row-last address-field validate-required validate-postcode">
+                                                <!-- <p id="shipping_postcode_field" class="form-row form-row-last address-field validate-required validate-postcode" data-o_class="form-row form-row-last address-field validate-required validate-postcode">
                                                     <label class="" for="shipping_postcode">Postcode <abbr title="required" class="required">*</abbr>
                                                     </label>
                                                     <input type="text" value="" placeholder="Postcode / Zip" id="shipping_postcode" name="shipping_postcode" class="input-text ">
-                                                </p>
+                                                </p> -->
 
                                                 <div class="clear"></div>
                                             </div>
@@ -619,26 +621,32 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="cart_item">
+                                            <!-- <tr class="cart_item">
                                                 <td class="product-name">
                                                     Ship Your Idea <strong class="product-quantity">× 1</strong> </td>
                                                 <td class="product-total">
                                                     <span class="amount">£15.00</span> </td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                         <tfoot>
 
                                             <tr class="cart-subtotal">
                                                 <th>Cart Subtotal</th>
-                                                <td><span class="amount">£15.00</span>
+                                                <td><span class="amount">${total}</span>
                                                 </td>
                                             </tr>
 
                                             <tr class="shipping">
                                                 <th>Shipping and Handling</th>
                                                 <td>
-
-                                                    Free Shipping
+                                                    <!-- JSTL IF/ELSE to check shipping price -->
+                                                    <c:if test="${total >= 500}">
+													   <c:out value="Free Shipping"/>
+													</c:if>
+													<c:if test="${total < 500}">
+													   <c:out value="${shipping}"/>
+													</c:if>
+													
                                                     <input type="hidden" class="shipping_method" value="free_shipping" id="shipping_method_0" data-index="0" name="shipping_method[0]">
                                                 </td>
                                             </tr>
@@ -646,7 +654,7 @@
 
                                             <tr class="order-total">
                                                 <th>Order Total</th>
-                                                <td><strong><span class="amount">£15.00</span></strong> </td>
+                                                <td><strong><span class="amount">${total+shipping}</span></strong> </td>
                                             </tr>
 
                                         </tfoot>
@@ -681,7 +689,7 @@
 
                                         <div class="form-row place-order">
 
-                                            <input type="submit" data-value="Place order" value="Place order" id="place_order" name="woocommerce_checkout_place_order" class="button alt">
+                                            <a href="/HardwareStore/payment"><input type="button" data-value="Place order" value="Place order" id="place_order" name="woocommerce_checkout_place_order" class="button alt"></a>
 
 
                                         </div>

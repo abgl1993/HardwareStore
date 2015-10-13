@@ -18,8 +18,13 @@ public class Cart implements Serializable{
 		 cartList.add(item);
 	}
 	
-	public void removeFromCart(Item item){
-		cartList.remove(item);
+	public boolean removeFromCart(Item item){
+		System.out.println("size:"+cartList.size());
+		if(cartList.remove(item)){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 	public void displayItem(){
